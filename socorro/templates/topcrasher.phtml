@@ -1,0 +1,50 @@
+<style>
+table {
+	border-collapse: collapse;
+}
+	table tr td {
+		border: 1px solid #ccc;
+		padding: 3px;
+	}
+	table tr th {
+		background-color: #ccc;
+		border: 1px solid white;
+		text-align: left;
+	}
+</style>
+
+<h1>Top crasher by signature</h1>
+
+<table>
+	<tr>
+		<th>Rank</th>
+		<th>Signature</th>
+		<th>Count</th>
+		<th>Win</th>
+		<th>Mac</th>
+		<th>Lin</th>
+		<th>First Appearance</th>
+	</tr>
+	<?php foreach ($signatures as $s) { ?>
+	<tr>
+		<td><?php echo $s['rank']; ?></td>
+		<td><?php echo $s['signature']; ?></td>
+		<td><?php echo $s['count']; ?></td>
+		<td><?php echo $s['windows']; ?></td>
+		<td><?php echo $s['mac']; ?></td>
+		<td><?php echo $s['linux']; ?></td>
+		<td><?php echo $s['date']; ?></td>
+	</tr>
+	<?php } ?>
+</table>
+
+
+<h1>Hits</h1>
+<pre>
+<?php var_dump($hits); ?>
+</pre>
+
+<h1>Facets</h1>
+<pre>
+<?php var_dump($facets); ?>
+</pre>

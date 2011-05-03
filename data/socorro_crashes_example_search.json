@@ -1,0 +1,27 @@
+{
+    "fields" : ["signature"],
+    "query" : {
+        "term" : {
+            "signature" : "libdvm.so"
+        }
+    },
+    "filter" : {
+        "and" : [
+            {
+                "term" : {
+                    "product" : "fennec"
+                }
+            },
+            {
+                "term" : {
+                    "version" : "4.0b5"
+                }
+            },
+            {
+                "term" : {
+                    "os_name" : "linux"
+                }
+            }
+        ]
+    }
+}

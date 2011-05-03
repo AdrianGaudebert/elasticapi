@@ -1,0 +1,56 @@
+<h1>Search by signature</h1>
+
+<form method=post action="">
+	<p>
+		<label>
+			Product:
+			<select name=product>
+				<option value=firefox>Firefox</option>
+				<option value=fennec>Fennec</option>
+				<option value=thunderbird>Thunderbird</option>
+			</select>
+		</label>
+
+		<label>
+			OS:
+			<select name=version>
+				<option value=4.0b5>4.0b5</option>
+			</select>
+		</label>
+
+		<label>
+			OS:
+			<select name=os>
+				<option value=windows>Windows</option>
+				<option value=mac>Mac OS X</option>
+				<option value=linux>Linux</option>
+				<option value=solaris>Solaris</option>
+			</select>
+		</label>
+
+		<label>
+			Contains:
+			<input type=text name=signature>
+		</label>
+
+		<button type=submit>Search</button>
+
+	</p>
+</form>
+
+<ul>
+	<?php foreach ($crashes as $c) { ?>
+	<li><?php echo $c->signature; ?></li>
+	<?php } ?>
+</ul>
+
+
+<h1>Hits</h1>
+<pre>
+<?php var_dump($hits); ?>
+</pre>
+
+<h1>Facets</h1>
+<pre>
+<?php var_dump($facets); ?>
+</pre>

@@ -1,0 +1,47 @@
+{
+    "fields" : [ "signature" ],
+    "query" : {
+        "match_all" : {}
+    },
+    "facets" : {
+        "signature" : {
+            "terms" : {
+                "script_field" : "_source.signature_full"
+            }
+        },
+        "windows" : {
+            "terms" : {
+                "script_field" : "_source.signature_full"
+            },
+            "facet_filter" : {
+                "term" : { "os_name" : "windows" }
+            }
+        },
+        "missing" : {
+            "terms" : {
+                "script_field" : "_source.signature_full"
+            },
+            "facet_filter" : {
+                "missing" : { "field" : "signature" }
+            }
+        },
+        "missing_linux" : {
+            "terms" : {
+                "script_field" : "_source.signature_full"
+            },
+            "facet_filter" : {
+                "and" : [
+                    {
+                        "missing" : { "field" : "signature" }
+                    },
+                    {
+                        "term" : { "os_name" : "linux" }
+                    }
+                ]
+            }
+        },
+        "os" : {
+            "terms" : { "script_field" : "_source.os_name" }
+        }
+    }
+}
