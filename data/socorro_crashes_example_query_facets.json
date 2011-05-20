@@ -6,12 +6,12 @@
     "facets" : {
         "signature" : {
             "terms" : {
-                "script_field" : "_source.signature_full"
+                "script_field" : "_source.signature"
             }
         },
         "windows" : {
             "terms" : {
-                "script_field" : "_source.signature_full"
+                "script_field" : "_source.signature"
             },
             "facet_filter" : {
                 "term" : { "os_name" : "windows" }
@@ -19,7 +19,7 @@
         },
         "missing" : {
             "terms" : {
-                "script_field" : "_source.signature_full"
+                "script_field" : "_source.signature"
             },
             "facet_filter" : {
                 "missing" : { "field" : "signature" }
@@ -27,7 +27,7 @@
         },
         "missing_linux" : {
             "terms" : {
-                "script_field" : "_source.signature_full"
+                "script_field" : "_source.signature"
             },
             "facet_filter" : {
                 "and" : [
